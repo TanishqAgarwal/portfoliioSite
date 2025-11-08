@@ -18,7 +18,7 @@ export default function Portfolio() {
               <button
                 onClick={() =>
                   (window.location.href =
-                    "mailto:tanishqagarwal10@gmail.com?subject=Hi%20Tanishq!&body=I%20came%20across%20your%20portfolio%20and...")
+                    "mailto:tanishqagarwal10@gmail.com")
                 }
                 className="px-5 py-2.5 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-all shadow-md hover:shadow-indigo-600/40"
               >
