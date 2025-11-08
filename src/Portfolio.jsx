@@ -167,13 +167,23 @@ export default function Portfolio() {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="p-4 rounded-2xl bg-gradient-to-br from-indigo-700 to-pink-600 shadow-xl transform-gpu hover:scale-105 transition">
-                <div className="text-sm text-slate-50">what I love</div>
-                <div className="mt-2 text-lg font-semibold">Kafka • Go • ts • infra</div>
+              <div className="p-5 rounded-2xl bg-gradient-to-br from-indigo-700/30 via-fuchsia-600/20 to-pink-600/20 shadow-xl border border-slate-700/40 hover:shadow-pink-500/20 transition-all transform-gpu hover:scale-[1.02]">
+                <h3 className="text-slate-100 font-semibold text-sm mb-3 uppercase tracking-wide">
+                  what i love
+                </h3>
+                <ul className="space-y-2 text-base text-slate-200 font-medium">
+                  <li>🧠 optimizing latency (and overthinking life)</li>
+                  <li>🧰 debugging code & feelings</li>
+                  <li>🎵 shipping bugs to lo-fi beats</li>
+                </ul>
+                <div className="mt-3 text-xs text-slate-400 italic">
+                  fueled by coffee • driven by curiosity • deployed at odd hours ☕
+                </div>
               </div>
+
               <div className="hidden md:block p-4 rounded-2xl bg-slate-800/60 border border-slate-700 flex-col items-center justify-center">
                 <div className="text-sm text-slate-400">available for</div>
-                <div className="mt-2 text-base text-emerald-300 font-medium">Backend / Platform roles</div>
+                <div className="mt-2 text-base text-emerald-300 font-medium">Crazy Software roles</div>
               </div>
             </div>
           </div>
