@@ -15,15 +15,13 @@ export default function Portfolio() {
               Backend Engineer • IIT Kharagpur • Urban Company
             </p>
             <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-3">
-              <button
-                onClick={() =>
-                  (window.location.href =
-                    "mailto:tanishqagarwal10@gmail.com")
-                }
-                className="px-5 py-2.5 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-all shadow-md hover:shadow-indigo-600/40"
+              <a
+                href="mailto:tanishqagarwal10@gmail.com"
+                className="px-5 py-2.5 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-all shadow-md hover:shadow-indigo-600/40 inline-block text-center"
               >
                 Email
-              </button>
+              </a>
+
 
               <a
                 href="https://www.linkedin.com/in/tanishq-agarwal-01a8881a0/"
