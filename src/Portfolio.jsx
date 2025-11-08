@@ -18,10 +18,36 @@ export default function Portfolio() {
             <div className="mt-5 flex flex-wrap justify-center md:justify-start gap-3">
               <a
                 href="mailto:tanishqagarwal10@gmail.com"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigator.clipboard.writeText("tanishqagarwal10@gmail.com");
+                  const toast = document.createElement("div");
+                  toast.innerText = "📋 Email copied to clipboard";
+                  toast.style.position = "fixed";
+                  toast.style.bottom = "30px";
+                  toast.style.left = "50%";
+                  toast.style.transform = "translateX(-50%)";
+                  toast.style.background = "#4f46e5"; // indigo-600
+                  toast.style.color = "white";
+                  toast.style.padding = "10px 18px";
+                  toast.style.borderRadius = "8px";
+                  toast.style.fontSize = "14px";
+                  toast.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
+                  toast.style.zIndex = 9999;
+                  toast.style.opacity = "0";
+                  toast.style.transition = "opacity 0.3s ease";
+                  document.body.appendChild(toast);
+                  setTimeout(() => (toast.style.opacity = "1"), 10);
+                  setTimeout(() => {
+                    toast.style.opacity = "0";
+                    setTimeout(() => toast.remove(), 300);
+                  }, 2000);
+                }}
                 className="inline-block px-5 py-2.5 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-all shadow-md hover:shadow-indigo-600/40"
               >
                 Email
               </a>
+
         
               <a
                 href="https://www.linkedin.com/in/tanishq-agarwal-01a8881a0/"
