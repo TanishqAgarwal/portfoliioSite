@@ -1,159 +1,159 @@
-import React from 'react';
+import React from "react";
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 antialiased">
-      <div className="max-w-5xl mx-auto px-6 py-16">
-        {/* Header / Hero */}
-        <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 text-gray-900 antialiased">
+      <div className="max-w-6xl mx-auto px-6 py-16">
+
+        {/* ===== HERO SECTION ===== */}
+        <header className="flex flex-col items-center text-center md:flex-row md:text-left md:justify-between gap-8 mb-16">
           <div>
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Tanishq Agarwal</h1>
-            <p className="mt-2 text-lg text-gray-600">Backend Engineer • IIT Kharagpur • Urban Company</p>
-            <div className="mt-4 flex flex-wrap gap-3">
-              <a href="mailto:tanishqagarwal10@gmail.com" className="inline-block px-4 py-2 bg-indigo-600 text-white rounded-md">Email</a>
-              <a href="https://www.linkedin.com/in/tanishq-agarwal-01a8881a0/" target="_blank" rel="noreferrer" className="inline-block px-4 py-2 border border-indigo-600 text-indigo-600 rounded-md">LinkedIn</a>
-              <a href="https://github.com/TanishqAgarwal" target="_blank" rel="noreferrer" className="inline-block px-4 py-2 border border-gray-300 rounded-md">GitHub</a>
+            <h1 className="text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
+              Tanishq Agarwal
+            </h1>
+            <p className="mt-3 text-lg text-gray-600">
+              Backend Engineer • IIT Kharagpur • Urban Company
+            </p>
+            <div className="mt-5 flex flex-wrap justify-center md:justify-start gap-3">
+              <a
+                href="mailto:tanishqagarwal10@gmail.com?subject=Hi%20Tanishq!&body=I%20came%20across%20your%20portfolio..."
+                className="px-5 py-2.5 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-all shadow-md hover:shadow-lg"
+              >
+                Email
+              </a>
+              <a
+                href="https://www.linkedin.com/in/tanishq-agarwal-01a8881a0/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-5 py-2.5 border border-indigo-600 text-indigo-600 rounded-full hover:bg-indigo-50 transition-all shadow-sm hover:shadow-md"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://github.com/TanishqAgarwal"
+                target="_blank"
+                rel="noreferrer"
+                className="px-5 py-2.5 border border-gray-300 rounded-full hover:bg-gray-50 transition-all shadow-sm hover:shadow-md"
+              >
+                GitHub
+              </a>
+              <a
+                href="/Tanishq%20Agarwal%20Resume.pdf"
+                download
+                className="px-5 py-2.5 border border-purple-500 text-purple-600 rounded-full hover:bg-purple-50 transition-all shadow-sm hover:shadow-md"
+              >
+                Download Resume
+              </a>
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
-            <div className="text-right">
-              <div className="text-sm text-gray-500">Based in India</div>
-              <div className="mt-1 text-sm text-gray-500">Open to backend & platform roles</div>
+          <div className="relative">
+            <div className="w-36 h-36 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400 p-[3px] shadow-lg">
+              <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-4xl font-bold text-indigo-500">
+                T
+              </div>
             </div>
           </div>
         </header>
 
-        <main className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Left column */}
-          <section className="md:col-span-2 space-y-8">
-            <article className="bg-white p-6 rounded-2xl shadow-sm">
-              <h2 className="text-2xl font-semibold">About</h2>
-              <p className="mt-3 text-gray-700 leading-relaxed">
-                Backend-focused software engineer with experience building scalable, data-driven systems and
-                automation platforms. Skilled in TypeScript, Go, Kafka, Airflow, MongoDB, SQL and microservices.
-                Passionate about designing resilient systems that improve operational efficiency and experience.
+        {/* ===== MAIN CONTENT ===== */}
+        <main className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {/* LEFT COLUMN */}
+          <section className="md:col-span-2 space-y-10">
+            {/* About */}
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
+              <h2 className="text-2xl font-semibold text-indigo-600">About</h2>
+              <p className="mt-4 text-gray-700 leading-relaxed">
+                Backend-focused software engineer experienced in building scalable,
+                data-driven systems and automation platforms. Skilled in TypeScript,
+                Go, Kafka, Airflow, MongoDB, SQL, and microservices. Passionate about
+                designing resilient systems that improve operational efficiency and experience.
               </p>
-            </article>
+            </div>
 
-            <article className="bg-white p-6 rounded-2xl shadow-sm">
-              <h2 className="text-2xl font-semibold">Experience</h2>
-
-              <div className="mt-4 space-y-4">
+            {/* Experience */}
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
+              <h2 className="text-2xl font-semibold text-indigo-600">Experience</h2>
+              <div className="mt-6 space-y-6 text-gray-700">
                 <div>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="font-semibold">Software Developer (Backend) — Urban Company</h3>
-                      <div className="text-sm text-gray-500">May 2024 – Present</div>
-                    </div>
-                  </div>
-                  <ul className="list-disc list-inside mt-3 text-gray-700">
-                    <li>Built a parallel fulfillment system and intelligent matchmaking tunnel to capture demand from non-serviceable areas — scaled to ~3x of UC-serviceable request volumes and reduced Ops costs by 20–25%.</li>
-                    <li>Implemented a pricing engine for central accounting flows (Money Box) and promoted Domain Driven Design for scalable systems.</li>
-                    <li>Engineered vendor & catalog lifecycle management to automate ~80% of procurement (~850 SKUs).</li>
-                    <li>Designed product scanning & reconciliation systems to track real-time product usage across partners and ensure traceability in the supply chain.</li>
+                  <h3 className="font-semibold text-lg">Software Developer (Backend) — Urban Company</h3>
+                  <p className="text-sm text-gray-500 mb-2">May 2024 – Present</p>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Built a parallel fulfillment system & matchmaking tunnel capturing non-serviceable demand — scaled to 3× UC volumes & reduced Ops cost by 25%.</li>
+                    <li>Implemented a pricing engine for central accounting flows (Money Box) and promoted Domain Driven Design.</li>
+                    <li>Automated 80% of procurement lifecycle (~850 SKUs) through vendor & catalog lifecycle management.</li>
+                    <li>Built scanning & reconciliation systems for real-time product tracking across partners.</li>
                   </ul>
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="font-semibold">Standard Chartered — Intern</h3>
-                      <div className="text-sm text-gray-500">May 2023 – Jul 2023</div>
-                    </div>
-                  </div>
-                  <p className="mt-2 text-gray-700">Automated a manual fund allocation process using Python scripting, cutting ~80 monthly hours and improving accuracy across stakeholders.</p>
+                  <h3 className="font-semibold text-lg">Standard Chartered — Intern</h3>
+                  <p className="text-sm text-gray-500 mb-2">May 2023 – Jul 2023</p>
+                  <p>Automated fund allocation using Python scripting, cutting ~80 monthly hours and improving accuracy.</p>
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="font-semibold">Niti.AI — Intern</h3>
-                      <div className="text-sm text-gray-500">Feb 2023 – Apr 2023</div>
-                    </div>
-                  </div>
-                  <ul className="list-disc list-inside mt-3 text-gray-700">
-                    <li>Built REST APIs in Go, integrated with Next.js frontend; used gRPC & Protobuf for consistent client-server contracts.</li>
-                    <li>Designed PostgreSQL schemas for element libraries and built a React Flow UI for user-created flows.</li>
+                  <h3 className="font-semibold text-lg">Niti.AI — Intern</h3>
+                  <p className="text-sm text-gray-500 mb-2">Feb 2023 – Apr 2023</p>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Built REST APIs in Go integrated with Next.js frontend; used gRPC & Protobuf.</li>
+                    <li>Designed PostgreSQL schemas and built a React Flow UI for visual workflows.</li>
                   </ul>
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="font-semibold">Evva Health — Contractor</h3>
-                      <div className="text-sm text-gray-500">Sep 2023 – Nov 2023</div>
-                    </div>
-                  </div>
-                  <p className="mt-2 text-gray-700">Built a secure React frontend with JWT auth and a mobile chatbot UI integrated with OpenAI services.</p>
+                  <h3 className="font-semibold text-lg">Evva Health — Contractor</h3>
+                  <p className="text-sm text-gray-500 mb-2">Sep 2023 – Nov 2023</p>
+                  <p>Built secure React frontend with JWT auth and integrated chatbot UI using OpenAI APIs.</p>
                 </div>
               </div>
-            </article>
+            </div>
 
-            <article className="bg-white p-6 rounded-2xl shadow-sm">
-              <h2 className="text-2xl font-semibold">Projects</h2>
+            {/* Projects */}
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
+              <h2 className="text-2xl font-semibold text-indigo-600">Projects</h2>
               <div className="mt-4 space-y-4 text-gray-700">
                 <div>
                   <h4 className="font-semibold">Rubik’s Cube Solver</h4>
-                  <p className="mt-1">Implemented 3 models in C++ and used search algorithms (BFS/DFS/IDA*) — solving under 3s for 8-move scrambles and under 10s for 13-move scrambles.</p>
+                  <p>Developed solver models in C++ using BFS/DFS/IDA*; solved 8-move scrambles under 3s.</p>
                 </div>
-
                 <div>
-                  <h4 className="font-semibold">Group Chat Application</h4>
-                  <p className="mt-1">Built a real-time chat app using Express + Socket.IO and deployed it on Heroku. Supported multiple chat rooms with full-duplex communication.</p>
+                  <h4 className="font-semibold">Group Chat App</h4>
+                  <p>Built real-time chat using Express + Socket.IO; deployed on Heroku supporting multi-room chats.</p>
                 </div>
-
               </div>
-            </article>
+            </div>
 
-            <article className="bg-white p-6 rounded-2xl shadow-sm">
-              <h2 className="text-2xl font-semibold">Education & Achievements</h2>
-              <p className="mt-3 text-gray-700">Dual Degree, Civil Engg — IIT Kharagpur (2019–2024), CGPA 8.0</p>
-              <ul className="list-disc list-inside mt-3 text-gray-700">
+            {/* Education */}
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
+              <h2 className="text-2xl font-semibold text-indigo-600">Education & Achievements</h2>
+              <p className="mt-4 text-gray-700">Dual Degree, Civil Engineering — IIT Kharagpur (2019–2024), CGPA 8.0</p>
+              <ul className="list-disc list-inside mt-3 space-y-1 text-gray-700">
                 <li>All India Rank 43 — Facebook Hackercup Round 1 (2022)</li>
                 <li>Global Rank 1101 — Google Kickstart Round D (2022)</li>
-                <li>Top 2.1% in JEE Mains 2019</li>
+                <li>Top 2.1% — JEE Mains 2019</li>
               </ul>
-            </article>
-
+            </div>
           </section>
 
-          {/* Right column */}
-          <aside className="space-y-6">
-            <div className="bg-white p-6 rounded-2xl shadow-sm">
-              <h3 className="font-semibold">Skills</h3>
-              <div className="mt-3 grid grid-cols-2 gap-2 text-sm text-gray-700">
-                <div>TypeScript</div>
-                <div>Go</div>
-                <div>Python</div>
-                <div>C / C++</div>
-                <div>Kafka</div>
-                <div>Airflow</div>
-                <div>MongoDB</div>
-                <div>SQL</div>
-                <div>Microservices</div>
-                <div>Grafana / ELK</div>
+          {/* RIGHT COLUMN */}
+          <aside className="space-y-8">
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
+              <h3 className="text-xl font-semibold text-indigo-600 mb-3">Skills</h3>
+              <div className="grid grid-cols-2 gap-3 text-sm text-gray-700">
+                {["TypeScript", "Go", "Python", "C / C++", "Kafka", "Airflow", "MongoDB", "SQL", "Microservices", "Grafana / ELK"].map((skill) => (
+                  <span key={skill} className="px-2 py-1 bg-indigo-50 text-indigo-700 rounded-lg text-center">
+                    {skill}
+                  </span>
+                ))}
               </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl shadow-sm">
-              <h3 className="font-semibold">Contact</h3>
-              <p className="mt-2 text-sm text-gray-700">Email: tanishqagarwal10@gmail.com</p>
-              <p className="mt-1 text-sm text-gray-700">Phone: +91 70443 23958</p>
-              <div className="mt-4 flex gap-3">
-                <a href="https://www.stopstalk.com/user/profile/tanishqagarwal" target="_blank" rel="noreferrer" className="text-sm underline">StopStalk</a>
-              </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl shadow-sm text-sm text-gray-700">
-              <h3 className="font-semibold">Resume</h3>
-              <p className="mt-2">Download a copy: <a href="/Tanishq%20Agarwal%20Resume.pdf" className="text-indigo-600 underline">Resume (PDF)</a></p>
             </div>
           </aside>
         </main>
 
-        <footer className="mt-12 text-center text-sm text-gray-500">
-          Built with ♥ — Tanishq Agarwal • © {new Date().getFullYear()}
+        {/* Footer */}
+        <footer className="mt-16 text-center text-sm text-gray-500">
+          Built with <span className="text-red-500">♥</span> by Tanishq Agarwal • © {new Date().getFullYear()}
         </footer>
       </div>
     </div>
