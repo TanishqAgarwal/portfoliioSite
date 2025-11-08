@@ -1,213 +1,191 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+/**
+ * Playful Tech-Nerd Portfolio
+ * - Typewriter tagline
+ * - Animated gradient blobs
+ * - Emoji + witty microcopy
+ * - Email anchor that opens mail client + copies email to clipboard + toast
+ * - Resume opens in new tab
+ *
+ * Requires TailwindCSS (the project already has it)
+ */
+
+const EMAIL = "tanishqagarwal10@gmail.com";
 
 export default function Portfolio() {
+  const taglines = [
+    "I make backend systems sing 🎶",
+    "I build things that don't freak out in production — often 🛠️",
+    "Kafka whisperer • Go tinkerer • TypeScript appreciator",
+  ];
+
+  const [idx, setIdx] = useState(0);
+  const [typed, setTyped] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [toast, setToast] = useState(null);
+
+  // Typewriter effect
+  useEffect(() => {
+    let timeout;
+    const full = taglines[idx % taglines.length];
+    if (!isDeleting) {
+      timeout = setTimeout(() => setTyped(full.slice(0, typed.length + 1)), 80);
+      if (typed === full) timeout = setTimeout(() => setIsDeleting(true), 1200);
+    } else {
+      timeout = setTimeout(() => setTyped(full.slice(0, typed.length - 1)), 40);
+      if (typed === "") {
+        setIsDeleting(false);
+        setIdx((i) => (i + 1) % taglines.length);
+      }
+    }
+    return () => clearTimeout(timeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [typed, isDeleting, idx]);
+
+  // toast auto-clear
+  useEffect(() => {
+    if (!toast) return;
+    const t = setTimeout(() => setToast(null), 2000);
+    return () => clearTimeout(t);
+  }, [toast]);
+
+  // copy to clipboard with fallback
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setToast("📋 Email copied!");
+    } catch (e) {
+      // fallback: select & execCommand (older browsers)
+      const ta = document.createElement("textarea");
+      ta.value = EMAIL;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+        setToast("📋 Email copied!");
+      } catch {
+        setToast("❗ Couldn't copy. Please copy manually.");
+      } finally {
+        ta.remove();
+      }
+    }
+  };
+
+  const onEmailClick = (e) => {
+    // Let anchor open mail client normally; also copy to clipboard and show toast
+    copyEmail();
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-200 antialiased">
-      <div className="max-w-6xl mx-auto px-6 py-16">
+    <div className="min-h-screen relative bg-[#071024] text-slate-100 antialiased overflow-hidden">
+      {/* floating blobs */}
+      <div className="absolute -z-10 inset-0 pointer-events-none">
+        <div className="absolute -left-24 -top-24 w-72 h-72 rounded-full bg-gradient-to-tr from-purple-600/30 to-indigo-400/20 blur-3xl animate-blob slow" />
+        <div className="absolute right-0 top-24 w-80 h-80 rounded-full bg-gradient-to-br from-pink-500/20 to-rose-400/10 blur-2xl animate-blob animation-delay-2000" />
+        <div className="absolute left-1/4 bottom-0 w-56 h-56 rounded-full bg-gradient-to-r from-cyan-400/15 to-indigo-500/10 blur-2xl animate-blob animation-delay-4000" />
+      </div>
 
-        {/* ===== HERO SECTION ===== */}
-        <header className="flex flex-col items-center text-center md:flex-row md:text-left md:justify-between gap-8 mb-20">
-          <div>
-            <h1 className="text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-violet-500">
-              Tanishq Agarwal
-            </h1>
-            <p className="mt-3 text-lg text-gray-400">
-              Backend Engineer • IIT Kharagpur • Urban Company
-            </p>
-        
-            <div className="mt-5 flex flex-wrap justify-center md:justify-start gap-3">
-              <a
-                href="mailto:tanishqagarwal10@gmail.com"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  navigator.clipboard.writeText("tanishqagarwal10@gmail.com");
-                  const toast = document.createElement("div");
-                  toast.innerText = "📋 Email copied to clipboard";
-                  toast.style.position = "fixed";
-                  toast.style.bottom = "30px";
-                  toast.style.left = "50%";
-                  toast.style.transform = "translateX(-50%)";
-                  toast.style.background = "#4f46e5"; // indigo-600
-                  toast.style.color = "white";
-                  toast.style.padding = "10px 18px";
-                  toast.style.borderRadius = "8px";
-                  toast.style.fontSize = "14px";
-                  toast.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
-                  toast.style.zIndex = 9999;
-                  toast.style.opacity = "0";
-                  toast.style.transition = "opacity 0.3s ease";
-                  document.body.appendChild(toast);
-                  setTimeout(() => (toast.style.opacity = "1"), 10);
-                  setTimeout(() => {
-                    toast.style.opacity = "0";
-                    setTimeout(() => toast.remove(), 300);
-                  }, 2000);
-                }}
-                className="inline-block px-5 py-2.5 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-all shadow-md hover:shadow-indigo-600/40"
-              >
-                Email
-              </a>
+      <style>{`
+        /* small custom keyframes for blob motion and subtle tilt */
+        @keyframes blob {
+          0% { transform: translateY(0px) scale(1); }
+          33% { transform: translateY(-12px) scale(1.05); }
+          66% { transform: translateY(8px) scale(0.98); }
+          100% { transform: translateY(0px) scale(1); }
+        }
+        .animate-blob { animation: blob 6s infinite; }
+        .slow { animation-duration: 9s; }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+        /* tiny tilt hover for project cards */
+        .tilt:hover { transform: translateY(-6px) rotate(-0.6deg) scale(1.01); }
+      `}</style>
 
-        
-              <a
-                href="https://www.linkedin.com/in/tanishq-agarwal-01a8881a0/"
-                target="_blank"
-                rel="noreferrer"
-                className="px-5 py-2.5 border border-indigo-500 text-indigo-400 rounded-full hover:bg-indigo-500/10 transition-all"
-              >
-                LinkedIn
-              </a>
-        
-              <a
-                href="https://github.com/TanishqAgarwal"
-                target="_blank"
-                rel="noreferrer"
-                className="px-5 py-2.5 border border-gray-600 rounded-full hover:bg-gray-700/60 transition-all"
-              >
-                GitHub
-              </a>
-        
-              <a
-                href="/Tanishq%20Agarwal%20Resume.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="px-5 py-2.5 border border-violet-500 text-violet-400 rounded-full hover:bg-violet-500/10 transition-all"
-              >
-                Resume
-              </a>
+      <div className="max-w-5xl mx-auto px-6 py-12">
+        {/* header */}
+        <header className="flex items-center justify-between gap-6 mb-8">
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-500 to-pink-500 flex items-center justify-center text-2xl font-extrabold text-white shadow-lg transform-gpu">
+              T
             </div>
-          </div>
-        
-          <div className="relative">
-            <div className="w-36 h-36 rounded-full bg-gradient-to-r from-indigo-400 to-violet-500 p-[3px] shadow-xl shadow-indigo-700/30">
-              <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center text-4xl font-bold text-indigo-400">
-                T
+            <div>
+              <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                hey, i'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-pink-300">Tanishq</span> 👋
+              </h1>
+              <div className="mt-1 text-sm text-slate-300">
+                <span className="inline-block mr-2">backend engineer</span>
+                <span className="inline-block px-2 py-0.5 ml-2 bg-slate-800/60 rounded-full text-xs">iit kgp</span>
+                <span className="inline-block px-2 py-0.5 ml-2 bg-slate-800/60 rounded-full text-xs">urban company</span>
               </div>
             </div>
           </div>
+
+          <nav className="flex items-center gap-3">
+            <a
+              href="/Tanishq%20Agarwal%20Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="px-3 py-2 rounded-full text-sm font-medium bg-slate-700/40 hover:bg-slate-700/60 transition"
+            >
+              Resume ↗
+            </a>
+
+            {/* Email as anchor styled as a chip/button; works reliably */}
+            <a
+              href={`mailto:${EMAIL}`}
+              onClick={onEmailClick}
+              className="px-3 py-2 rounded-full text-sm font-medium bg-indigo-600/90 hover:bg-indigo-500 transition-shadow shadow-md"
+            >
+              ✉️ Email
+            </a>
+          </nav>
         </header>
 
-
-        {/* ===== MAIN CONTENT ===== */}
-        <main className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* LEFT COLUMN */}
-          <section className="md:col-span-2 space-y-10">
-            {/* About */}
-            <div className="bg-gray-800/60 backdrop-blur-sm p-8 rounded-2xl border border-gray-700 hover:border-indigo-600/40 transition-all hover:shadow-lg hover:shadow-indigo-600/20">
-              <h2 className="text-2xl font-semibold text-indigo-400">About</h2>
-              <p className="mt-4 text-gray-300 leading-relaxed">
-                Backend-focused software engineer experienced in building scalable,
-                data-driven systems and automation platforms. Skilled in TypeScript,
-                Go, Kafka, Airflow, MongoDB, SQL, and microservices. Passionate about
-                designing resilient systems that improve operational efficiency and experience.
+        {/* hero / tagline */}
+        <section className="bg-gradient-to-r from-slate-800/50 to-slate-900/40 border border-slate-700/40 rounded-2xl p-6 shadow-lg">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <div className="text-lg text-indigo-300 font-medium">playful tech-nerd portfolio</div>
+              <h2 className="mt-3 text-2xl sm:text-3xl font-bold">
+                I build resilient backends <span className="text-amber-300">with personality</span> ✨
+              </h2>
+              <p className="mt-3 text-slate-300 max-w-2xl leading-relaxed">
+                Systems that scale, scripts that save time, and the occasional hack that becomes a feature.
+                Below are a few things I tinker with — and some stories behind the scars. 🧪
               </p>
-            </div>
 
-            {/* Experience */}
-            <div className="bg-gray-800/60 backdrop-blur-sm p-8 rounded-2xl border border-gray-700 hover:border-indigo-600/40 transition-all hover:shadow-lg hover:shadow-indigo-600/20">
-              <h2 className="text-2xl font-semibold text-indigo-400">Experience</h2>
-              <div className="mt-6 space-y-6 text-gray-300">
-                <div>
-                  <h3 className="font-semibold text-lg text-gray-100">
-                    Software Developer (Backend) — Urban Company
-                  </h3>
-                  <p className="text-sm text-gray-500 mb-2">May 2024 – Present</p>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>Built a parallel fulfillment system & intelligent matchmaking tunnel — scaled to 3× UC volumes, reducing Ops cost by 25%.</li>
-                    <li>Implemented pricing engine for central accounting flows (Money Box) using Domain Driven Design.</li>
-                    <li>Automated 80% of procurement lifecycle (~850 SKUs) through vendor & catalog lifecycle management.</li>
-                    <li>Built scanning & reconciliation systems for real-time product tracking across partners.</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-lg text-gray-100">Standard Chartered — Intern</h3>
-                  <p className="text-sm text-gray-500 mb-2">May 2023 – Jul 2023</p>
-                  <p>Automated fund allocation using Python scripting, cutting ~80 monthly hours and improving accuracy.</p>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-lg text-gray-100">Niti.AI — Intern</h3>
-                  <p className="text-sm text-gray-500 mb-2">Feb 2023 – Apr 2023</p>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>Built REST APIs in Go integrated with Next.js frontend; used gRPC & Protobuf.</li>
-                    <li>Designed PostgreSQL schemas and built a React Flow UI for visual workflows.</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-lg text-gray-100">Evva Health — Contractor</h3>
-                  <p className="text-sm text-gray-500 mb-2">Sep 2023 – Nov 2023</p>
-                  <p>Developed secure React frontend with JWT auth and integrated chatbot UI using OpenAI APIs.</p>
+              <div className="mt-4 flex items-center gap-3">
+                <div className="text-sm text-slate-300/80">current mood</div>
+                <div className="px-3 py-1 bg-slate-800/60 rounded-full text-sm text-indigo-200 font-medium shadow-sm">
+                  {typed}
+                  <span className="inline-block ml-1 text-indigo-300">▍</span>
                 </div>
               </div>
             </div>
 
-            {/* Projects */}
-            <div className="bg-gray-800/60 backdrop-blur-sm p-8 rounded-2xl border border-gray-700 hover:border-indigo-600/40 transition-all hover:shadow-lg hover:shadow-indigo-600/20">
-              <h2 className="text-2xl font-semibold text-indigo-400">Projects</h2>
-              <div className="mt-4 space-y-4 text-gray-300">
-                <div>
-                  <h4 className="font-semibold text-gray-100">Rubik’s Cube Solver</h4>
-                  <p>Developed solver models in C++ using BFS/DFS/IDA*; solved 8-move scrambles under 3s.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-100">Group Chat App</h4>
-                  <p>Built real-time chat using Express + Socket.IO; deployed on Heroku supporting multi-room chats.</p>
-                </div>
+            <div className="flex items-center gap-4">
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-indigo-700 to-pink-600 shadow-xl transform-gpu hover:scale-105 transition">
+                <div className="text-sm text-slate-50">what I love</div>
+                <div className="mt-2 text-lg font-semibold">Kafka • Go • ts • infra</div>
+              </div>
+              <div className="hidden md:block p-4 rounded-2xl bg-slate-800/60 border border-slate-700 flex-col items-center justify-center">
+                <div className="text-sm text-slate-400">available for</div>
+                <div className="mt-2 text-base text-emerald-300 font-medium">Backend / Platform roles</div>
               </div>
             </div>
+          </div>
+        </section>
 
-            {/* Education */}
-            <div className="bg-gray-800/60 backdrop-blur-sm p-8 rounded-2xl border border-gray-700 hover:border-indigo-600/40 transition-all hover:shadow-lg hover:shadow-indigo-600/20">
-              <h2 className="text-2xl font-semibold text-indigo-400">Education & Achievements</h2>
-              <p className="mt-4 text-gray-300">
-                Dual Degree, Civil Engineering — IIT Kharagpur (2019–2024), CGPA 8.0
-              </p>
-              <ul className="list-disc list-inside mt-3 space-y-1 text-gray-300">
-                <li>All India Rank 43 — Facebook Hackercup Round 1 (2022)</li>
-                <li>Global Rank 1101 — Google Kickstart Round D (2022)</li>
-                <li>Top 2.1% — JEE Mains 2019</li>
-              </ul>
-            </div>
-          </section>
-
-          {/* RIGHT COLUMN */}
-          <aside className="space-y-8">
-            <div className="bg-gray-800/60 backdrop-blur-sm p-8 rounded-2xl border border-gray-700 hover:border-indigo-600/40 transition-all hover:shadow-lg hover:shadow-indigo-600/20">
-              <h3 className="text-xl font-semibold text-indigo-400 mb-4">Skills</h3>
-              <div className="grid grid-cols-2 gap-3 text-sm text-gray-300">
-                {[
-                  "TypeScript",
-                  "Go",
-                  "Python",
-                  "C / C++",
-                  "Kafka",
-                  "Airflow",
-                  "MongoDB",
-                  "SQL",
-                  "Microservices",
-                  "Grafana / ELK",
-                ].map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-2 py-1 bg-gray-700/70 text-indigo-300 rounded-lg text-center hover:bg-indigo-600/20 transition-all"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </aside>
-        </main>
-
-        {/* Footer */}
-        <footer className="mt-20 text-center text-sm text-gray-500">
-          Built with <span className="text-red-500">♥</span> by{" "}
-          <span className="text-indigo-400 font-medium">Tanishq Agarwal</span> • ©{" "}
-          {new Date().getFullYear()}
-        </footer>
-      </div>
-    </div>
-  );
-}
+        {/* main grid */}
+        <main className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* left (spans 2) */}
+          <section className="md:col-span-2 space-y-6">
+            {/* Experience card */}
+            <div className="tilt bg-slate-800/50 border border-slate-700/40 p-6 rounded-2xl hover:shadow-2xl transition transform">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h3 className="text-lg font-semibold">Urban Company — Software Developer (Backend)</h3>
+                  <div className="mt-1 text-sm text-sla
