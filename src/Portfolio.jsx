@@ -172,12 +172,12 @@ export default function Portfolio() {
                   what i love
                 </h3>
                 <ul className="space-y-2 text-base text-slate-200 font-medium">
-                  <li>🧠 optimizing latency (and overthinking life)</li>
-                  <li>🧰 debugging code & feelings</li>
-                  <li>🎵 shipping bugs to lo-fi beats</li>
+                  <li>🧠 overthinking life </li>
+                  <li>🤖 breaking things, then fixing better</li>
+                  <li>🚀 shipping systems that scale </li>
                 </ul>
                 <div className="mt-3 text-xs text-slate-400 italic">
-                  fueled by coffee • driven by curiosity • deployed at odd hours ☕
+                  fueled by coffee • deployed at odd hours ☕
                 </div>
               </div>
 
