@@ -7,62 +7,59 @@ export default function Portfolio() {
 
         {/* ===== HERO SECTION ===== */}
         <header className="flex flex-col items-center text-center md:flex-row md:text-left md:justify-between gap-8 mb-20">
-  <div>
-    <h1 className="text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-violet-500">
-      Tanishq Agarwal
-    </h1>
-    <p className="mt-3 text-lg text-gray-400">
-      Backend Engineer • IIT Kharagpur • Urban Company
-    </p>
-
-    <div className="mt-5 flex flex-wrap justify-center md:justify-start gap-3">
-      <button
-  onClick={(e) => {
-    e.preventDefault();
-    window.open("mailto:tanishqagarwal10@gmail.com", "_blank");
-  }}
-  className="px-5 py-2.5 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-all shadow-md hover:shadow-indigo-600/40"
->
-  Email
-</button>
-
-      <a
-        href="https://www.linkedin.com/in/tanishq-agarwal-01a8881a0/"
-        target="_blank"
-        rel="noreferrer"
-        className="px-5 py-2.5 border border-indigo-500 text-indigo-400 rounded-full hover:bg-indigo-500/10 transition-all"
-      >
-        LinkedIn
-      </a>
-
-      <a
-        href="https://github.com/TanishqAgarwal"
-        target="_blank"
-        rel="noreferrer"
-        className="px-5 py-2.5 border border-gray-600 rounded-full hover:bg-gray-700/60 transition-all"
-      >
-        GitHub
-      </a>
-
-      <a
-        href="/Tanishq%20Agarwal%20Resume.pdf"
-        target="_blank"
-        rel="noreferrer"
-        className="px-5 py-2.5 border border-violet-500 text-violet-400 rounded-full hover:bg-violet-500/10 transition-all"
-      >
-        Resume
-      </a>
-    </div>
-  </div>
-
-  <div className="relative">
-    <div className="w-36 h-36 rounded-full bg-gradient-to-r from-indigo-400 to-violet-500 p-[3px] shadow-xl shadow-indigo-700/30">
-      <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center text-4xl font-bold text-indigo-400">
-        T
-      </div>
-    </div>
-  </div>
-</header>
+          <div>
+            <h1 className="text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-violet-500">
+              Tanishq Agarwal
+            </h1>
+            <p className="mt-3 text-lg text-gray-400">
+              Backend Engineer • IIT Kharagpur • Urban Company
+            </p>
+        
+            <div className="mt-5 flex flex-wrap justify-center md:justify-start gap-3">
+              <a
+                href="mailto:tanishqagarwal10@gmail.com"
+                className="inline-block px-5 py-2.5 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-all shadow-md hover:shadow-indigo-600/40"
+              >
+                Email
+              </a>
+        
+              <a
+                href="https://www.linkedin.com/in/tanishq-agarwal-01a8881a0/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-5 py-2.5 border border-indigo-500 text-indigo-400 rounded-full hover:bg-indigo-500/10 transition-all"
+              >
+                LinkedIn
+              </a>
+        
+              <a
+                href="https://github.com/TanishqAgarwal"
+                target="_blank"
+                rel="noreferrer"
+                className="px-5 py-2.5 border border-gray-600 rounded-full hover:bg-gray-700/60 transition-all"
+              >
+                GitHub
+              </a>
+        
+              <a
+                href="/Tanishq%20Agarwal%20Resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="px-5 py-2.5 border border-violet-500 text-violet-400 rounded-full hover:bg-violet-500/10 transition-all"
+              >
+                Resume
+              </a>
+            </div>
+          </div>
+        
+          <div className="relative">
+            <div className="w-36 h-36 rounded-full bg-gradient-to-r from-indigo-400 to-violet-500 p-[3px] shadow-xl shadow-indigo-700/30">
+              <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center text-4xl font-bold text-indigo-400">
+                T
+              </div>
+            </div>
+          </div>
+        </header>
 
 
         {/* ===== MAIN CONTENT ===== */}
