@@ -188,4 +188,128 @@ export default function Portfolio() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <h3 className="text-lg font-semibold">Urban Company — Software Developer (Backend)</h3>
-                  <div className="mt-1 text-sm text-sla
+                  <div className="mt-1 text-sm text-slate-400">May 2024 — Present</div>
+                </div>
+                <div className="text-sm text-slate-300">👨‍💻 day-to-day</div>
+              </div>
+
+              <ul className="mt-4 list-disc list-inside text-slate-300 space-y-2">
+                <li>Built a parallel-fulfillment & matchmaking system — handled 3× demand safely.</li>
+                <li>Pricing engine & money flows: improved reconciliation and made accountants smile.</li>
+                <li>Automated vendor lifecycle & SKU cataloging — saved ops hours monthly.</li>
+              </ul>
+            </div>
+
+            {/* Projects grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <article className="tilt bg-gradient-to-br from-indigo-700/10 to-pink-700/6 p-5 rounded-xl border border-slate-700/30 hover:shadow-2xl transition">
+                <div className="flex items-center justify-between">
+                  <h4 className="font-semibold text-slate-100">Rubik's Cube Solver</h4>
+                  <div className="text-sm text-amber-300">C++ • algos</div>
+                </div>
+                <p className="mt-2 text-slate-300 text-sm">Search algorithms (BFS/IDA*) — fast solves, nerdy math.</p>
+                <div className="mt-3 text-xs text-slate-400">fun fact: tuned on coffee ☕️</div>
+              </article>
+
+              <article className="tilt bg-gradient-to-br from-cyan-700/6 to-indigo-700/8 p-5 rounded-xl border border-slate-700/30 hover:shadow-2xl transition">
+                <div className="flex items-center justify-between">
+                  <h4 className="font-semibold text-slate-100">Realtime Group Chat</h4>
+                  <div className="text-sm text-emerald-300">Node • Socket.IO</div>
+                </div>
+                <p className="mt-2 text-slate-300 text-sm">Full-duplex chats with rooms — deployed for small teams.</p>
+                <div className="mt-3 text-xs text-slate-400">pro tip: websockets > polling</div>
+              </article>
+            </div>
+
+            {/* fun terminal-ish area */}
+            <div className="tilt bg-slate-900/60 border border-slate-700/40 p-4 rounded-xl">
+              <div className="flex items-center justify-between">
+                <div className="text-sm text-emerald-300 font-mono">~$</div>
+                <div className="text-xs text-slate-400">recent hack</div>
+              </div>
+              <div className="mt-3 font-mono text-sm text-slate-300 bg-slate-800/40 p-3 rounded">
+                git commit -m "fix: stop leaks in fulfillment pipeline" <span className="text-slate-400">// pushed at 02:14am</span>
+              </div>
+            </div>
+          </section>
+
+          {/* right column */}
+          <aside className="space-y-6">
+            <div className="bg-slate-800/50 border border-slate-700/40 p-5 rounded-xl">
+              <h5 className="text-sm text-amber-300 font-semibold">skills</h5>
+              <div className="mt-3 grid grid-cols-2 gap-2">
+                {[
+                  "TypeScript",
+                  "Go",
+                  "Kafka",
+                  "Airflow",
+                  "MongoDB",
+                  "SQL",
+                  "C/C++",
+                  "Microservices",
+                ].map((s) => (
+                  <div key={s} className="px-2 py-1 bg-slate-900/30 rounded text-sm text-slate-200">
+                    {s}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-slate-800/50 border border-slate-700/40 p-5 rounded-xl">
+              <h5 className="text-sm text-amber-300 font-semibold">contact</h5>
+              <div className="mt-3 text-slate-300 text-sm">
+                <div className="flex items-center justify-between">
+                  <div className="font-medium">{EMAIL}</div>
+                  <button
+                    onClick={copyEmail}
+                    className="ml-3 px-2 py-1 text-xs rounded bg-indigo-600 hover:bg-indigo-500"
+                  >
+                    copy
+                  </button>
+                </div>
+
+                <div className="mt-3 text-xs text-slate-400">
+                  open to freelance & full-time chats — prefer backend/platform roles.
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-slate-800/50 border border-slate-700/40 p-5 rounded-xl">
+              <h5 className="text-sm text-amber-300 font-semibold">misc</h5>
+              <div className="mt-3 text-slate-300 text-sm">
+                <div>guitar • too much coffee • paragliding someday</div>
+              </div>
+            </div>
+          </aside>
+        </main>
+
+        {/* footer */}
+        <footer className="mt-8 text-center text-slate-400 text-sm">
+          made with ❤️ — <span className="text-indigo-300 font-medium">Tanishq</span> · crafted for humans, not robots
+        </footer>
+      </div>
+
+      {/* toast */}
+      {toast && (
+        <div
+          className="fixed left-1/2 -translate-x-1/2 bottom-8 bg-indigo-600 text-white px-4 py-2 rounded-lg shadow-lg z-50 animate-fadeIn"
+          role="status"
+        >
+          {toast}
+        </div>
+      )}
+
+      <style>{`
+        /* toast animation */
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px) scale(0.98); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .animate-fadeIn { animation: fadeIn 240ms ease-out; }
+
+        /* slight card transitions */
+        .tilt { transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms; }
+      `}</style>
+    </div>
+  );
+}
