@@ -251,13 +251,15 @@ export default function Portfolio() {
               <div className="mt-3 grid grid-cols-2 gap-2">
                 {[
                   "TypeScript",
-                  "Go",
                   "Kafka",
+                  "Kibana",
+                  "Grafana",
+                  "Microservices",
                   "Airflow",
                   "MongoDB",
                   "SQL",
                   "C/C++",
-                  "Microservices",
+                  "Go",
                 ].map((s) => (
                   <div key={s} className="px-2 py-1 bg-slate-900/30 rounded text-sm text-slate-200">
                     {s}
