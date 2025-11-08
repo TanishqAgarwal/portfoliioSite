@@ -148,7 +148,6 @@ export default function Portfolio() {
         <section className="bg-gradient-to-r from-slate-800/50 to-slate-900/40 border border-slate-700/40 rounded-2xl p-6 shadow-lg">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
-              <div className="text-lg text-indigo-300 font-medium">playful tech-nerd portfolio</div>
               <h2 className="mt-3 text-2xl sm:text-3xl font-bold">
                 I build resilient backends <span className="text-amber-300">with personality</span> ✨
               </h2>
@@ -183,7 +182,7 @@ export default function Portfolio() {
 
               <div className="hidden md:block p-4 rounded-2xl bg-slate-800/60 border border-slate-700 flex-col items-center justify-center">
                 <div className="text-sm text-slate-400">available for</div>
-                <div className="mt-2 text-base text-emerald-300 font-medium">Crazy Software roles</div>
+                <div className="mt-2 text-base text-emerald-300 font-medium">🧬 building weird things with AI</div>
               </div>
             </div>
           </div>
