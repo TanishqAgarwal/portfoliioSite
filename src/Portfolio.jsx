@@ -16,9 +16,10 @@ const EMAIL = "tanishqagarwal10@gmail.com";
 export default function Portfolio() {
   const taglines = [
     "I make backend systems sing 🎶",
-    "I test in production (because YOLO) 🔥"
+    "I test in production (because YOLO) 🔥",
     "I build things that don't freak out in production — often 🛠️",
     "Kafka whisperer • TypeScript appreciator",
+    "Vibing while coding 🎧💻"
   ];
 
   const [idx, setIdx] = useState(0);
