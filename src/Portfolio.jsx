@@ -290,7 +290,7 @@ export default function Portfolio() {
             <div className="bg-slate-800/50 border border-slate-700/40 p-5 rounded-xl">
               <h5 className="text-sm text-amber-300 font-semibold">misc</h5>
               <div className="mt-3 text-slate-300 text-sm">
-                <div>guitar • too much coffee • paragliding someday</div>
+                <div>guitar • piano • badminton • running • treks • solo paragliding someday</div>
               </div>
             </div>
           </aside>
