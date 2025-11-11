@@ -174,8 +174,8 @@ export default function Portfolio() {
                 </h3>
                 <ul className="space-y-2 text-base text-slate-200 font-medium">
                   <li>🧠 overthinking life </li>
-                  <li>🤖 breaking things, then fixing better</li>
                   <li>🚀 shipping systems that scale </li>
+                  <li>🤖 breaking things, then fixing better(just kidding😛) </li>
                 </ul>
                 <div className="mt-3 text-xs text-slate-400 italic">
                   fueled by coffee • deployed at odd hours ☕
