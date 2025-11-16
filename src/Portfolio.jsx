@@ -236,7 +236,7 @@ export default function Portfolio() {
             <div className="tilt bg-slate-800/50 border border-slate-700/40 p-6 rounded-2xl hover:shadow-2xl transition">
               <h3 className="text-lg font-semibold mb-3">my git vibes 📊</h3>
               <p className="text-slate-300 text-sm mb-4">
-                A quick snapshot of my contribution graph — proof that I do touch grass, but not too often 😛
+                A quick snapshot of my contribution graph — proof that I do touch grass :)
               </p>
             
               <img
