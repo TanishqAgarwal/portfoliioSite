@@ -244,6 +244,15 @@ export default function Portfolio() {
                 alt="Git contribution heatmap"
                 className="rounded-xl shadow-md w-full"
               />
+              <a
+                href="https://gitlab.urbanclap.com/tanishqagarwal"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block mt-4 px-4 py-2 rounded-lg text-sm font-medium bg-indigo-600/90 hover:bg-indigo-500 transition shadow"
+              >
+                View Full Contribution Graph ↗
+              </a>
+              
             </div>
 
 
